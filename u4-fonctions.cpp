@@ -70,3 +70,32 @@ void RebondBouleSupSurInf()
  		gData.BouleSup.vy = (gData.BouleInf.m*vInf+gData.BouleSup.m*vSup+gData.BouleInf.m*SupInfCOR*(vInf-vSup))/(gData.BouleInf.m+gData.BouleSup.m);
     }
 }
+
+// calcule les nouvelles positions et vitesses à t1 à partir de t0
+
+void Euler(double *pos, double *vit, double t0, double t1){        
+        double dt=t1-t0;
+       
+        double dpos[2];
+        double dvit[2];
+       
+        // équations du mouvement : definition des dpos (dx/dt, dy/dt) et des dvit (dvx/dt, dvy/dt) à partir des pos et des vit
+
+        dpos[0] = vit[0];        // dx/dt = vx
+        dpos[1] = vit[1];
+                       
+        dvit[0] = 0;             // dvx/dt = force (signe - car dirigée du satellite vers le Terre) / masse sonde
+        dvit[1] = 0;
+       
+        // interaction avec la Terre
+	
+        double X_Terre = pos[0] - gData.Terre.X;                // abscisse du satellite par rapport au Terre
+        double Y_Terre = pos[1] - gData.Terre.Y;
+        double Dist_Terre = sqrt(X_Terre*X_Terre+Y_Terre*Y_Terre);
+       
+        // dv/dt = force (signe - car dirigée du satellite vers le Terre) / masse sonde
+        dvit[0] += -(Gred*gData.Terre.Masse/pow(Dist_Terre,3))*X_Terre;       
+        dvit[1] += -(Gred*gData.Terre.Masse/pow(Dist_Terre,3))*Y_Terre;
+       
+        // méthode d'Euler stricto sensu : mise à jour des pos et vit
+	//à compléter : il ne reste en fait que l'intégration, très simple, à faire
