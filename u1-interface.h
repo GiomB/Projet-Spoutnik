@@ -25,10 +25,10 @@ const int H_FENETRE = 800;	// Hauteur en pixels de Fenetre
 
 // positions et dimensions (en pixels) de ZoneDessin dans Fenetre
 // cf. orientation (X,Y) de Fenetre dans la doc FLTK : (0,0) tout en haut et � gauche de la Fenetre => X augmente vers la droite et Y augmente vers le bas
-const int X_ZONE = 300;		// Position X (Xmin) de ZoneDessin dans Fenetre, en pixels
-const int Y_ZONE = 0;      	// Position Y (Ymin) de ZoneDessin dans Fenetre, en pixels
-const int L_ZONE = 100;    	// Largeur en pixels de ZoneDessin qu'on choisit d'associer � une longueur d'1 m dans la r�alit�, d'o� DrawingScaleFactor (entre dessin et r�alit�) = 100 pixels/m�tre
-const int H_ZONE = 600;    	// Hauteur en pixels de ZoneDessin (correspondant � 4 m dans la r�alit� d'apr�s le choix fait ci-dessus)
+const int X_ZONE = 180;		// Position X (Xmin) de ZoneDessin dans Fenetre, en pixels
+const int Y_ZONE = 20;      	// Position Y (Ymin) de ZoneDessin dans Fenetre, en pixels
+const int L_ZONE = 950;    	// Largeur en pixels de ZoneDessin qu'on choisit d'associer � une longueur d'1 m dans la r�alit�, d'o� DrawingScaleFactor (entre dessin et r�alit�) = 100 pixels/m�tre
+const int H_ZONE = 750;    	// Hauteur en pixels de ZoneDessin (correspondant � 4 m dans la r�alit� d'apr�s le choix fait ci-dessus)
 
 // d�claration de la structure globale gInterface : connue partout (comme gData), pour g�rer la grande Fenetre et la petite ZoneDessin
 struct Interface
