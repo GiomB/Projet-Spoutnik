@@ -115,4 +115,6 @@ void DeplacerBouleSup(double dt);
 void RebondBouleInfSurSol();
 void RebondBouleSupSurInf();
 
+void Euler(double *pos, double *vit, double t0, double t1);
+
 #endif
