@@ -17,46 +17,34 @@ const double PeriodeTerre = 8.6164*10⁴;
 const double MasseTerre = 5.972*10^24;
 
 const double G = 6.674*10^(-11);
-const double G~ = G*PeriodeTerre²*MasseTerre/(RayonTerre³);
+const double GRed = G*PeriodeTerre²*MasseTerre/(RayonTerre³);
 
 const double RayonOrbiteBasse = 6.800*10^(6);
-const double RayonOrbiteBasse~ = RayonOrbiteBasse/RayonTerre;
+const double RayonOrbiteBasseRed = RayonOrbiteBasse/RayonTerre;
 
 const double RayonOrbiteHaute = 3.5786*10^7 + RayonTerre;
-const double RayonOrbiteHaute~ = RayonOrbiteHaute/RayonTerre;
+const double RayonOrbiteHauteRed = RayonOrbiteHaute/RayonTerre;
 
-const double VitesseOrbiteBasse = sqrt
-const double VitesseOrbiteBasse~
+const double VitesseOrbiteBasse;
+const double VitesseOrbiteBasseRed = sqrt(GRed/RayonOrbiteBasseRed)
 
-const double VitesseOrbiteHaute
-const double VitesseOrbiteHaute~
+const double VitesseOrbiteHaute;
+const double VitesseOrbiteHauteRed = sqrt(GRed/RayonOrbiteHauteRed)
 
-const double VitesseEllipseA
-const double VitesseEllipseA~
+const double VitesseEllipseA = sqrt(2*G*MasseTerre*RayonOrbiteHaute/((RayonOrbiteHaute+RayonOrbiteBasse)*RayonOrbiteBasse));
+const double VitesseEllipseARed = VitesseEllipseA * PeriodeTerre/RayonTerre;
 
-const double VitesseEllipseB
-const double VitesseEllipseB~
+const double VitesseEllipseB = sqrt(2*G*MasseTerre*RayonOrbiteBasse/((RayonOrbiteHaute+RayonOrbiteBasse)*RayonOrbiteHaute));
+const double VitesseEllipseBRed = VitesseEllipseB * PeriodeTerre/RayonTerre;
 
-const double DeltaVA~
+const double DeltaVARed = VitesseEllipseA - VitesseOrbiteBasse;
 
-const double DeltaVB~
-
-
-
-const double Tau
-const double 
-const double
-const double
-const double
-const double
-const double
-const double
-const double
-const double
-const double
+const double DeltaVBRed = VitesseOrbiteHaute - VitesseEllipseB;
 
 
-const double Pi = M_PI;						// constante parfois utile (issue de cmath)
+
+const double Tau = sqrt(M_PI²*(RayonOrbiteHaute+RayonOrbiteBasse)³/(G*MasseTerre*2))
+
 
 const double g = 9.81;						// constante physique ici indispensable (acc�l�ration de la pesanteur)
 
