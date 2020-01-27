@@ -10,6 +10,51 @@
 
 const double DUREE_CYCLE = 0.001;			// dur�e d'un cycle d'affichage
 											// pour r�gler la vitesse d'affichage, il faut jouer sur le temps physique associ� � ce temps CPU (cf. TraiterCycleCB dans u3-callbacks.cpp)
+const double RayonTerre = 6.371*10⁶;
+
+const double PeriodeTerre = 8.6164*10⁴;
+
+const double MasseTerre = 5.972*10^24;
+
+const double G = 6.674*10^(-11);
+const double G~ = G*PeriodeTerre²*MasseTerre/(RayonTerre³);
+
+const double RayonOrbiteBasse = 6.800*10^(6);
+const double RayonOrbiteBasse~ = RayonOrbiteBasse/RayonTerre;
+
+const double RayonOrbiteHaute = 3.5786*10^7 + RayonTerre;
+const double RayonOrbiteHaute~ = RayonOrbiteHaute/RayonTerre;
+
+const double VitesseOrbiteBasse = sqrt
+const double VitesseOrbiteBasse~
+
+const double VitesseOrbiteHaute
+const double VitesseOrbiteHaute~
+
+const double VitesseEllipseA
+const double VitesseEllipseA~
+
+const double VitesseEllipseB
+const double VitesseEllipseB~
+
+const double DeltaVA~
+
+const double DeltaVB~
+
+
+
+const double Tau
+const double 
+const double
+const double
+const double
+const double
+const double
+const double
+const double
+const double
+const double
+
 
 const double Pi = M_PI;						// constante parfois utile (issue de cmath)
 
