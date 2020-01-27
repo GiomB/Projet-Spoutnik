@@ -21,19 +21,19 @@ void CreerInterface()
     gInterface.ZoneDessin->draw_callback(DessinerCB, NULL);
 
      // exemple fourni de cr�ation d'un bouton (ici pour "Quitter", cf. la m�thode QuitterCB dans u3)
-    gInterface.BoutonExit = new Fl_Button(180, 540, 100, 20, "Exit");
+    gInterface.BoutonExit = new Fl_Button(150, 450, 100, 20, "Exit");
     gInterface.BoutonExit->callback(CallBackExit, NULL);
 
     // Creation du bouton "Pause/Play"
-    gInterface.BoutonPausePlay = new Fl_Button(20, 540, 100, 20, "Pause/Play");
+    gInterface.BoutonPausePlay = new Fl_Button(20, 450, 100, 20, "Pause/Play");
     gInterface.BoutonPausePlay->callback(CallBackPausePlay, NULL);
 
     // Creation du bouton "propulsion orbite 1"
-    gInterface.BoutonPropO1 = new Fl_Button(100, 400, 100, 20, "Propulsion 1");
+    gInterface.BoutonPropO1 = new Fl_Button(20, 400, 100, 20, "Propulsion 1");
     gInterface.BoutonPropO1->callback(CallBackPropO1, NULL);
 
     // Creation du bouton "Propulsion orbite 2"
-    gInterface.BoutonPropO2 = new Fl_Button(100, 400, 100, 20, "Propulsion 2");
+    gInterface.BoutonPropO2 = new Fl_Button(150, 400, 100, 20, "Propulsion 2");
     gInterface.BoutonPropO2->callback(CallBackPropO2, NULL);
 
 	// ajouter ci-dessous d'autres �l�ments �ventuellement utiles (Fl_Button, Fl_Value_Output, Fl_Value_Input, ...)
