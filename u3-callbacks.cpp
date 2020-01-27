@@ -61,7 +61,7 @@ void CallBackExit(Fl_Widget* w, void* data)
     exit(0);
 }
 
-void CallBackPausePlay(Fl_Widget* w, void* data)
+void CallBackPause(Fl_Widget* w, void* data)
 {
 	if(gData.Pause == false) gData.Pause = true;
 	else gData.Pause = false;
