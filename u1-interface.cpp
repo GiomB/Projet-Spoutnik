@@ -25,8 +25,8 @@ void CreerInterface()
     gInterface.BoutonExit->callback(CallBackExit, NULL);
 
     // Creation du bouton "Pause/Play"
-    gInterface.BoutonPausePlay = new Fl_Button(20, 450, 100, 20, "Pause/Play");
-    gInterface.BoutonPausePlay->callback(CallBackPausePlay, NULL);
+    gInterface.BoutonPause = new Fl_Button(20, 450, 100, 20, "Pause/Play");
+    gInterface.BoutonPause->callback(CallBackPause, NULL);
 
     // Creation du bouton "propulsion orbite 1"
     gInterface.BoutonPropO1 = new Fl_Button(20, 400, 100, 20, "Propulsion 1");
@@ -34,7 +34,7 @@ void CreerInterface()
 
     // Creation du bouton "Propulsion orbite 2"
     gInterface.BoutonPropO2 = new Fl_Button(20, 350, 100, 20, "Propulsion 2");
-    gInterface.BoutonPropO2->callback(CallBackPropO2, NULL);
+    //gInterface.BoutonPropO2->callback(CallBackPropO2, NULL);
 
 	// ajouter ci-dessous d'autres �l�ments �ventuellement utiles (Fl_Button, Fl_Value_Output, Fl_Value_Input, ...)
 

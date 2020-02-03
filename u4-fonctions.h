@@ -10,48 +10,15 @@
 
 const double DUREE_CYCLE = 0.001;			// dur�e d'un cycle d'affichage
 											// pour r�gler la vitesse d'affichage, il faut jouer sur le temps physique associ� � ce temps CPU (cf. TraiterCycleCB dans u3-callbacks.cpp)
-const double RayonTerre = 6.371*10⁶;
 
-const double PeriodeTerre = 8.6164*10⁴;
-
-const double MasseTerre = 5.972*10^24;
-
-const double G = 6.674*10^(-11);
-const double GRed = G*PeriodeTerre²*MasseTerre/(RayonTerre³);
-
-const double RayonOrbiteBasse = 6.800*10^(6);
-const double RayonOrbiteBasseRed = RayonOrbiteBasse/RayonTerre;
-
-const double RayonOrbiteHaute = 3.5786*10^7 + RayonTerre;
-const double RayonOrbiteHauteRed = RayonOrbiteHaute/RayonTerre;
-
-const double VitesseOrbiteBasse;
-const double VitesseOrbiteBasseRed = sqrt(GRed/RayonOrbiteBasseRed)
-
-const double VitesseOrbiteHaute;
-const double VitesseOrbiteHauteRed = sqrt(GRed/RayonOrbiteHauteRed)
-
-const double VitesseEllipseA = sqrt(2*G*MasseTerre*RayonOrbiteHaute/((RayonOrbiteHaute+RayonOrbiteBasse)*RayonOrbiteBasse));
-const double VitesseEllipseARed = VitesseEllipseA * PeriodeTerre/RayonTerre;
-
-const double VitesseEllipseB = sqrt(2*G*MasseTerre*RayonOrbiteBasse/((RayonOrbiteHaute+RayonOrbiteBasse)*RayonOrbiteHaute));
-const double VitesseEllipseBRed = VitesseEllipseB * PeriodeTerre/RayonTerre;
-
-const double DeltaVARed = VitesseEllipseA - VitesseOrbiteBasse;
-
-const double DeltaVBRed = VitesseOrbiteHaute - VitesseEllipseB;
-
-
-
-const double Tau = sqrt(M_PI²*(RayonOrbiteHaute+RayonOrbiteBasse)³/(G*MasseTerre*2))
-
+const double Pi = M_PI;						// constante parfois utile (issue de cmath)
 
 const double g = 9.81;						// constante physique ici indispensable (acc�l�ration de la pesanteur)
 
 const double HauteurZone = 10;				// hauteur physique de la zone de dessin (en m�tres)
 
 const double rBouleInf = 0.2;				// rayon (en m, DrawingScaleFactor = 100 pixels/m�tres => le rayon de BouleInf prend 20 pixels dans l'interface)
-const double rBouleSup = 0.1;
+const double rBouleSup = 0.05;
 
 const double mBouleInf = 8;					// masse (en kg) : avec une densit� suppos�e ici commune aux deux boules (d'o� rayon x 2 => masse x 8)
 const double mBouleSup = 1;
@@ -89,7 +56,7 @@ struct Data
 	bool Pause;			// pour faire une pause en cliquant sur un bouton (et reprendre la simu en cliquant � nouveau dessus)
 	bool PropO2;
   bool PropO1;
-  bool Pause;
+
 };
 extern struct Data gData;
 
@@ -102,7 +69,5 @@ void DeplacerBouleSup(double dt);
 
 void RebondBouleInfSurSol();
 void RebondBouleSupSurInf();
-
-void Euler(double *pos, double *vit, double t0, double t1);
 
 #endif
