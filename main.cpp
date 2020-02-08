@@ -8,15 +8,15 @@
 #include <iostream>
 
 using namespace std;
-
-// déclaration de la fonction cyclique (définie juste après le programme principal)
-// NB : partout "CB" signifie CallBack (CB en fin de nom d'une méthode signifie simplement que cette méthode est de type callback, autrement dit peut etre rappelée à chaque nouveau cycle)
+//rthdfthgftfgftfgtf
+// dï¿½claration de la fonction cyclique (dï¿½finie juste aprï¿½s le programme principal)
+// NB : partout "CB" signifie CallBack (CB en fin de nom d'une mï¿½thode signifie simplement que cette mï¿½thode est de type callback, autrement dit peut etre rappelï¿½e ï¿½ chaque nouveau cycle)
 void CycleCB( void* ) ;
 
-// programme principal (fourni, déjà complet) : c'est TraiterCycleCB (dans u3) qu'il faut modifier (ainsi que toutes les méthodes appelées)
+// programme principal (fourni, dï¿½jï¿½ complet) : c'est TraiterCycleCB (dans u3) qu'il faut modifier (ainsi que toutes les mï¿½thodes appelï¿½es)
 int main (int argc, char ** argv)
 {
-    // création de l'interface graphique
+    // crï¿½ation de l'interface graphique
     CreerInterface();
 
  	// initialisation de la structure globale gData
@@ -28,22 +28,22 @@ int main (int argc, char ** argv)
     // armement de la fonction cyclique
     Fl::add_timeout(DUREE_CYCLE, CycleCB, NULL ) ;
 
-    // lancement de la boucle de gestion des cycles (pour en sortir, il faudra éxécuter "exit(0)" d'une façon ou d'une autre : bouton "Quitter", test, ...)
+    // lancement de la boucle de gestion des cycles (pour en sortir, il faudra ï¿½xï¿½cuter "exit(0)" d'une faï¿½on ou d'une autre : bouton "Quitter", test, ...)
     return Fl::run();
 }
 
 // fonction cyclique
 void CycleCB(void*)
 {
-    // appel de la fonction TraiterCycleCB (déclarée dans u3-callbacks.h)
+    // appel de la fonction TraiterCycleCB (dï¿½clarï¿½e dans u3-callbacks.h)
     TraiterCycleCB();
 	
-    // réarmement de la fonction cyclique
+    // rï¿½armement de la fonction cyclique
     Fl::add_timeout(DUREE_CYCLE, CycleCB, NULL ) ;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-// Classe et methodes DrawingArea : à considérer comme une librairie fournie, NE PAS MODIFIER //
+// Classe et methodes DrawingArea : ï¿½ considï¿½rer comme une librairie fournie, NE PAS MODIFIER //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 DrawingArea::DrawingArea(int X,int Y,int W,int H)
 : Fl_Widget(X,Y,W,H)
