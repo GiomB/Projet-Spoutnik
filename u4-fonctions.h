@@ -56,7 +56,7 @@ extern struct Data gData;
 // d�claration des m�thodes
 
 void InitialiserData() ;
-void Euler(double *pos, double *vit, double t0, double t1);
+void Euler(double t0, double t1);
 
 
 void DeplacerSatellite(double dt);

@@ -24,7 +24,6 @@ void InitialiserData()
     gData.t = 0;
 
 	gData.Pause = false;
-  gData.PropO= false;
 	gData.PropO1= false;
   gData.PropO2= false;
 };
