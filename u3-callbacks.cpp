@@ -29,8 +29,7 @@ void TraiterCycleCB(){
                    {
 									            Euler(dT);
 									                    gData.t += dT;
-                                      // printf("%lf \n",gData.x);
-                                      // printf("%lf \n",gData.vx);
+
 
                   }
 
@@ -38,12 +37,10 @@ void TraiterCycleCB(){
 				}
 
 
-        if (gData.Pause == true && gData.PropO1 == true && gData.PropO2 == false){
+      /*  if (gData.Pause == true && gData.PropO1 == true && gData.PropO2 == false){
 
 
                  if(gData.t < T1){
-                   gData.vy=-v1; //vitesse de l'orbite basse + impulsion supplémentaire
-                   gData.t += dT;
 
 									 for(int i = 0; i < N; i++){
 										 Euler(dT);
@@ -52,19 +49,18 @@ void TraiterCycleCB(){
 
                 }
         }
+
         if (gData.Pause == true && gData.PropO1 == true && gData.PropO2 == true){
 
 
             if(gData.t < T1){
-              gData.vy=v2; //vitesse de l'orbite basse + impulsion supplémentaire
-              gData.t += dT;
 
               for(int i = 0; i < N; i++){
                 Euler(dT);
                 gData.t += dT;}
 
            }
-				}
+				}*/
         gInterface.ZoneDessin->redraw();
 
         //cout << "print y en fin de cycle" << endl;
@@ -89,14 +85,20 @@ void CallBackPause(Fl_Widget* w, void* data)
 
 void CallBackPropO1(Fl_Widget* w, void* data){
 	if(gData.PropO1 == false) //Une fois le bouton activé, il sera tjrs vrai, pas de retour en arrière
+  {
     gData.PropO1 = true;
+    gData.vy = -v1; //vitesse de l'orbite basse + impulsion supplémentaire
+  }
   else
     exit; //le bouton a déjà été appuyé, rien ne se passe car deja en orbite
 }
 
 void CallBackPropO2(Fl_Widget* w, void* data){
   if(gData.PropO2 == false) //le bouton a déjà été appuyé, rien ne se passe car deja en orbite
+  {
     gData.PropO2 = true;
+    gData.vy = v2;
+  }
   else
     exit; //le bouton a déjà été appuyé, rien ne se passe car deja en orbite
 }

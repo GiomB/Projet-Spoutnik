@@ -39,16 +39,18 @@ void Euler(double dt)        // calcule les nouvelles positions et vitesses à p
         dpos[0] = gData.vx; // vitesse en x
         dpos[1] = gData.vy; // vitesse en y
 
+        dvit[0] = 0;                // dvx/dt = force (signe - car dirigée du satellite vers le Terre) / masse sonde
+        dvit[1] = 0;
 
         // interaction avec la Terre
         double X_Sat = gData.x; //pos[0] - 0;                // abscisse du Satellite par rapport au Terre
-        double Y_Sat = gData.y + RTerre; //pos[1] - 0;
+        double Y_Sat = gData.y + RTerre; //pos[1] - RTerre (car centre pas au centre de la terre);
         double Dist_Terre = sqrt(X_Sat*X_Sat+Y_Sat*Y_Sat);
 
         // dv/dt = force (signe - car dirigée du Satellite vers le Terre) / masse sonde
-        dvit[0] += -(Gr/pow(Dist_Terre,2))*X_Sat;
-        dvit[1] += -(Gr/pow(Dist_Terre,2))*Y_Sat;
-        cout << dvit[0] << endl;
+        dvit[0] += -(Gr/pow(Dist_Terre,3))*X_Sat;
+        dvit[1] += -(Gr/pow(Dist_Terre,3))*Y_Sat;
+
         //Calcul des nouvelles valeurs des positions et vitesses
         gData.x += dpos[0]*dt;
         gData.y += dpos[1]*dt;
