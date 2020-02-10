@@ -21,22 +21,23 @@ void DessinerCB( Fl_Widget* widget, void* data )
 	double DrawingScaleFactor = H_ZONE/HauteurZone;		// nombre de pixels par unit� de longueur (ici le m�tre)
 														// = rapport de la hauteur de ZoneDessin (H_ZONE, en pixels) sur sa hauteur dans la r�alit� (HauteurZone, en m�tres)
 
-    //on dessine 1ere orbite
+    //on dessine orbite basse
     fl_color(FL_YELLOW);
     fl_line_style(FL_DASH,0.5);
-    fl_arc(X_origine + DrawingScaleFactor*(gData.BouleInf.x-RayonOrbiteBasse), Y_origine + DrawingScaleFactor*(gData.BouleInf.y-RayonOrbiteBasse), DrawingScaleFactor*2*RayonOrbiteBasse, DrawingScaleFactor*2*RayonOrbiteBasse, 0, 360);
+    fl_arc(X_origine + DrawingScaleFactor*(0-RBas), Y_origine + DrawingScaleFactor*(0-RBas), DrawingScaleFactor*2*RBas, DrawingScaleFactor*2*RBas, 0, 360);
 
+    //on dessine porbite géostationnaire
     fl_color(FL_GREEN);
-    fl_arc(X_origine + DrawingScaleFactor*(gData.BouleInf.x-RayonOrbiteHaute), Y_origine + DrawingScaleFactor*(gData.BouleInf.y-RayonOrbiteHaute), DrawingScaleFactor*2*RayonOrbiteHaute, DrawingScaleFactor*2*RayonOrbiteHaute, 0, 360);
-    //fl_color(FL_BLACK);
-    //fl_pie(X_origine + DrawingScaleFactor*(gData.BouleSup.x-(RayonOrbiteBasse-0.03)), Y_origine + DrawingScaleFactor*(gData.BouleSup.y-(RayonOrbiteBasse-0.03)), DrawingScaleFactor*2*(RayonOrbiteBasse-0.03), DrawingScaleFactor*2*(RayonOrbiteBasse-0.03), 0, 360);
-    // on dessine la BouleInf (attention les deux premiers arguments sont "Xmin" et "Ymin", et non les coordonn�es du centre)
-    fl_color(FL_BLUE);
-    fl_pie(X_origine + DrawingScaleFactor*(gData.BouleInf.x-rBouleInf), Y_origine + DrawingScaleFactor*(gData.BouleInf.y-rBouleInf), DrawingScaleFactor*2*rBouleInf, DrawingScaleFactor*2*rBouleInf, 0, 360);
+    fl_arc(X_origine + DrawingScaleFactor*(0-RGeo), Y_origine + DrawingScaleFactor*(0-RGeo), DrawingScaleFactor*2*RGeo, DrawingScaleFactor*2*RGeo, 0, 360);
 
-    // on dessine la BouleSup
+
+    // on dessine la Terre (attention les deux premiers arguments sont "Xmin" et "Ymin", et non les coordonn�es du centre)
+    fl_color(FL_BLUE);
+    fl_pie(X_origine + DrawingScaleFactor*(0-rTerre), Y_origine + DrawingScaleFactor*(0-rTerre), DrawingScaleFactor*2*rTerre, DrawingScaleFactor*2*rTerre, 0, 360);
+
+    // on dessine la Satellite
     fl_color(FL_RED);
-    fl_pie(X_origine + DrawingScaleFactor*(gData.BouleSup.x-rBouleSup), Y_origine + DrawingScaleFactor*(gData.BouleSup.y+(rBouleInf-rBouleSup)), DrawingScaleFactor*2*rBouleSup, DrawingScaleFactor*2*rBouleSup, 0, 360);
+    fl_pie(X_origine + DrawingScaleFactor*(gData.x-rSatellite), Y_origine + DrawingScaleFactor*(gData.y+(rTerre-rSatellite)), DrawingScaleFactor*2*rSatellite, DrawingScaleFactor*2*rSatellite, 0, 360);
 
 
 }

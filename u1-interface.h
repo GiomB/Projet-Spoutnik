@@ -16,7 +16,7 @@
 #include <FL/Fl_Choice.H>
 #include <FL/Fl_Value_Input.H>
 
-// d�claration des constantes de l'interface graphique
+// déclaration des constantes de l'interface graphique
 
 // dimensions de Fenetre (la fenetre principale)
 
@@ -30,8 +30,9 @@ const int Y_ZONE = 20;      	// Position Y (Ymin) de ZoneDessin dans Fenetre, en
 const int L_ZONE = 950;    	// Largeur en pixels de ZoneDessin qu'on choisit d'associer � une longueur d'1 m dans la r�alit�, d'o� DrawingScaleFactor (entre dessin et r�alit�) = 100 pixels/m�tre
 const int H_ZONE = 750;    	// Hauteur en pixels de ZoneDessin (correspondant � 4 m dans la r�alit� d'apr�s le choix fait ci-dessus)
 
-const int RayonOrbiteBasse = 1.5;
-const int RayonOrbiteHaute = 4.5;
+const double RTerre=1;
+const double RBas = 1.063;
+const double RGeo = 6.63;
 
 // d�claration de la structure globale gInterface : connue partout (comme gData), pour g�rer la grande Fenetre et la petite ZoneDessin
 struct Interface
