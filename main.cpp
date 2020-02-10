@@ -11,7 +11,7 @@ using namespace std;
 
 // d�claration de la fonction cyclique (d�finie juste apr�s le programme principal)
 // NB : partout "CB" signifie CallBack (CB en fin de nom d'une m�thode signifie simplement que cette m�thode est de type callback, autrement dit peut etre rappel�e � chaque nouveau cycle)
-//void CycleCB( void* ) ;
+void CycleCB( void* ) ;
 
 // programme principal (fourni, d�j� complet) : c'est TraiterCycleCB (dans u3) qu'il faut modifier (ainsi que toutes les m�thodes appel�es)
 int main (int argc, char ** argv)
@@ -25,10 +25,10 @@ int main (int argc, char ** argv)
 	// premier dessin de la fenetre graphique
   	gInterface.ZoneDessin->redraw();
 
-    // armement de la fonction cyclique
-  //  Fl::add_timeout(DUREE_CYCLE, CycleCB, NULL ) ;
+  // armement de la fonction cyclique
+    Fl::add_timeout(DUREE_CYCLE, CycleCB, NULL ) ;
 
-    // lancement de la boucle de gestion des cycles (pour en sortir, il faudra �x�cuter "exit(0)" d'une fa�on ou d'une autre : bouton "Quitter", test, ...)
+  // lancement de la boucle de gestion des cycles (pour en sortir, il faudra �x�cuter "exit(0)" d'une fa�on ou d'une autre : bouton "Quitter", test, ...)
     return Fl::run();
 }
 

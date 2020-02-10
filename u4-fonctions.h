@@ -13,18 +13,17 @@ const double DUREE_CYCLE = 0.001;			// dur�e d'un cycle d'affichage
 
 const double Pi = M_PI;						// constante parfois utile (issue de cmath)
 const double g = 9.81;            // constante physique ici indispensable (acc�l�ration de la pesanteur)
-const double Gr = 6.67*1e-11;						// constante physique gravitationnelle
 const double HauteurZone = 10;				// hauteur physique de la zone de dessin (en m�tres)
 
 
 //Definiton des variables réduites (SANS DIMENSIONS)
-const double VBas=103.6;  //vitesse sur l'orbite basse
+const double VBas=10300.6;  //vitesse sur l'orbite basse
 const double VGeo=41.6;  //vitesse sur l'orbite géostationnaire
 const double v1=135;   //vitesse nécessaire pour quitter l'orbite basse vers celle de transfert
 const double v2=21.6;  //vitesse nécessaire pour arriver sur l'orbite géostationnaire depuis celle de transfert
 const double Imp1=31;   //vitesse à donner pour atteindre orbite de transfert
 const double Imp2=20;   //vitesse à donner pour atteindre orbite géostationnaire
-
+const double Gr = 11396;  // constante physique gravitationnelle réduite
 
 //Définiton des rapports graphiques (PIXELS)
 const double rTerre = 0.2;				// rayon (en m, DrawingScaleFactor = 100 pixels/m�tres => le rayon de Terre prend 20 pixels dans l'interface)
@@ -56,10 +55,7 @@ extern struct Data gData;
 // d�claration des m�thodes
 
 void InitialiserData() ;
-void Euler(double t0, double t1);
-
-
-void DeplacerSatellite(double dt);
+void Euler(double dt);
 
 
 #endif
