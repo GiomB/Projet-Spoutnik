@@ -18,12 +18,13 @@ void DessinerCB( Fl_Widget* widget, void* data )
 	double X_origine = X_ZONE + L_ZONE/2;	// abscisse, en pixels, dans la Fenetre du centre du rep�re
 	double Y_origine = Y_ZONE + H_ZONE/2;
 
-	double DrawingScaleFactor = H_ZONE/HauteurZone;		// nombre de pixels par unit� de longueur (ici le m�tre)
+	double DrawingScaleFactor = H_ZONE/14;		// (850pixels/14m) nombre de pixels par unit� de longueur (ici le m�tre)
 														// = rapport de la hauteur de ZoneDessin (H_ZONE, en pixels) sur sa hauteur dans la r�alit� (HauteurZone, en m�tres)
+
 
     //on dessine orbite basse
     fl_color(FL_YELLOW);
-    fl_line_style(FL_DASH,0.5);
+    //fl_line_style(FL_DASH,0.5);
     fl_arc(X_origine + DrawingScaleFactor*(0-RBas), Y_origine + DrawingScaleFactor*(0-RBas), DrawingScaleFactor*2*RBas, DrawingScaleFactor*2*RBas, 0, 360);
 
     //on dessine porbite géostationnaire
@@ -33,11 +34,11 @@ void DessinerCB( Fl_Widget* widget, void* data )
 
     // on dessine la Terre (attention les deux premiers arguments sont "Xmin" et "Ymin", et non les coordonn�es du centre)
     fl_color(FL_BLUE);
-    fl_pie(X_origine + DrawingScaleFactor*(0-rTerre), Y_origine + DrawingScaleFactor*(0-rTerre), DrawingScaleFactor*2*rTerre, DrawingScaleFactor*2*rTerre, 0, 360);
+    fl_pie(X_origine + DrawingScaleFactor*(0-RTerre), Y_origine + DrawingScaleFactor*(0-RTerre), DrawingScaleFactor*2*RTerre, DrawingScaleFactor*2*RTerre, 0, 360);
 
     // on dessine la Satellite
     fl_color(FL_RED);
-    fl_pie(X_origine + DrawingScaleFactor*(gData.x-rSatellite), Y_origine + DrawingScaleFactor*(gData.y+(rTerre-rSatellite)), DrawingScaleFactor*2*rSatellite, DrawingScaleFactor*2*rSatellite, 0, 360);
+    fl_pie(X_origine +DrawingScaleFactor*(gData.x-rSatellite), Y_origine + DrawingScaleFactor*(gData.y+(RTerre-rSatellite)), DrawingScaleFactor*2*rSatellite, DrawingScaleFactor*2*rSatellite, 0, 360);
 
 
 }

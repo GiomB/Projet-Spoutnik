@@ -41,9 +41,6 @@ struct Data
   double x;		// abscisse (physique, en m) du centre de la boule
   double y;		// ordonn�e
 
-  double dx;
-  double dy;
-
   double vx;    // vitesse selon y (en m.s-1)
   double vy;		// vitesse selon y (en m.s-1)
 

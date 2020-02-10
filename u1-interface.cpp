@@ -16,25 +16,34 @@ void CreerInterface()
     gInterface.Fenetre->label("Projet Spoutnik");
     gInterface.Fenetre->begin() ;
 
+    //mettre image de fond : ciel étoilé
+    gInterface.BackImage = new Fl_JPEG_Image("CIEL.jpg");
+    gInterface.BackBox = new Fl_Box(X_ZONE,Y_ZONE,L_ZONE,H_ZONE);
+    gInterface.BackBox->image(gInterface.BackImage);
+
     // cr�ation de la zone de dessin (en lui associant sa m�thode de dessin en CB)
     gInterface.ZoneDessin = new DrawingArea(X_ZONE,Y_ZONE,L_ZONE,H_ZONE);
     gInterface.ZoneDessin->draw_callback(DessinerCB, NULL);
 
      // exemple fourni de cr�ation d'un bouton (ici pour "Quitter", cf. la m�thode QuitterCB dans u3)
-    gInterface.BoutonExit = new Fl_Button(20, 500, 100, 20, "Exit");
+    gInterface.BoutonExit = new Fl_Button(20, 500, 120, 20, "Exit");
     gInterface.BoutonExit->callback(CallBackExit, NULL);
 
     // Creation du bouton "Pause/Play"
-    gInterface.BoutonPause = new Fl_Button(20, 450, 100, 20, "Pause/Play");
+    gInterface.BoutonPause = new Fl_Button(20, 450, 120, 20, "Pause/Play");
     gInterface.BoutonPause->callback(CallBackPause, NULL);
 
+
     // Creation du bouton "propulsion orbite 1"
-    gInterface.BoutonPropO1 = new Fl_Button(20, 400, 100, 20, "Propulsion 1");
+    gInterface.BoutonPropO1 = new Fl_Button(20, 350, 120, 20, "Propulsion 1");
     gInterface.BoutonPropO1->callback(CallBackPropO1, NULL);
 
     // Creation du bouton "Propulsion orbite 2"
-    gInterface.BoutonPropO2 = new Fl_Button(20, 350, 100, 20, "Propulsion 2");
-    //gInterface.BoutonPropO2->callback(CallBackPropO2, NULL);
+    gInterface.BoutonPropO2 = new Fl_Button(20, 400, 120, 20, "Propulsion 2");
+    gInterface.BoutonPropO2->callback(CallBackPropO2, NULL);
+
+
+
 
 	// ajouter ci-dessous d'autres �l�ments �ventuellement utiles (Fl_Button, Fl_Value_Output, Fl_Value_Input, ...)
 

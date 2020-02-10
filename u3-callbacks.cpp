@@ -14,7 +14,7 @@ using namespace std;
 
 
 void TraiterCycleCB(){
-        /*if (gData.Pause == false){
+        if (gData.Pause == true && gData.Prop01 == false && gData.Prop02 == false){
                 double T0=0;
                 double T1=1;                // temps max. en unités réduites = en jours Terrestres (T_T), ici 1 jour ~ 15 orbites basses ~ 1 orbite haute
 
@@ -22,16 +22,33 @@ void TraiterCycleCB(){
                 int N = 1000;                // nombre de pas Euler par DUREE_CYCLE (à ajuster pour la vitesse de l'affichage, indépendamment de DUREE_CYCLE)
                                                         // ici une DUREE_CYCLE correspond donc à N*dT ~ 1 s
 
-                 if(gData.Spoutnik.t < T1){
+                 if(gData.t < T1){
 									 for(int i = 0; i < N; i++){
-										 Euler(gData.Spoutnik.pos, gData.Spoutnik.vit, gData.Spoutnik.t, gData.Spoutnik.t+dT);
-										 gData.t += dt;
+										 Euler(gData.t, gData.t+dT);
+										 gData.t += dT;}
+                }
+
+								//gInterface.ZoneDessin->redraw();
+				}
+
+
+        if (gData.Pause == true && gData.Prop01 == true && gData.Prop02 == false){
+                
+
+                 if(gData.t < T1){
+									 for(int i = 0; i < N; i++){
+										 Euler(gData.t, gData.t+dT);
+										 gData.t += dT;
 									 }
                 }
-								gInterface.ZoneDessin->redraw();
+								//gInterface.ZoneDessin->redraw();
 				}}*/
 
-}  //il reste à mettre à jour : la nouvelle position du Satellite à dessiner
+
+
+
+
+}
 
 void CallBackExit(Fl_Widget* w, void* data)
 {
@@ -45,9 +62,25 @@ void CallBackPause(Fl_Widget* w, void* data)
 }
 
 void CallBackPropO1(Fl_Widget* w, void* data){
-	if(gData.PropO1 == false) gData.PropO1 = true;
-
+	if(gData.PropO1 == false) //Une fois le bouton activé, il sera tjrs vrai, pas de retour en arrière
+    gData.PropO1 = true;
+  else
+    exit; //le bouton a déjà été appuyé, rien ne se passe car deja en orbite
 }
 
 void CallBackPropO2(Fl_Widget* w, void* data){
+  if(gData.PropO2 == false)
+    gData.PropO2 = true;
+  else
+    exit;
+}
+
+
+void CallBackPropO(Fl_Widget* w, void* data){
+  if(gData.PropO == false){
+    gData.PropO = true; //le satellite est au bord de la Terre
+    gData.x=RBas;  // il est mis sur l'orbite basse
+  }
+  else
+    exit;
 }
