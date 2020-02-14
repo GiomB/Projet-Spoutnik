@@ -43,6 +43,8 @@ struct Data
   double vx;    // vitesse selon y (en m.s-1)
   double vy;		// vitesse selon y (en m.s-1)
 
+  double vy_curseur;
+
 	double t;			// temps physique (en s) de la simulation (de t=0 - valeur initiale - � une �ventuelle valeur maximale, non fix�e dans cette version minimaliste)
 
 	bool Pause;			// pour faire une pause en cliquant sur un bouton (et reprendre la simu en cliquant � nouveau dessus)

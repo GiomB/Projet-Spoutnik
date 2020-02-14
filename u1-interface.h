@@ -49,6 +49,21 @@ struct Interface
 
     Fl_Box*             BackBox;
     Fl_JPEG_Image*      BackImage;
+
+    Fl_Value_Output* ChampNumx ;
+    Fl_Value_Output* ChampNumy ;
+    Fl_Value_Output* ChampNumvx ;
+    Fl_Value_Output* ChampNumvy ;
+    Fl_Value_Output* ChampNumax ;
+    Fl_Value_Output* ChampNumay ;
+
+    Fl_Output* ChampTxtPosition ;
+    Fl_Output* ChampTxtVitesse ;
+    Fl_Output* ChampTxtAcceleration ;
+    Fl_Output* ChampTxtCurseurVy ;
+
+    Fl_Value_Slider* Curseur ;
+
 };
 extern struct Interface gInterface ;
 

@@ -62,12 +62,24 @@ void TraiterCycleCB(){
            }
 				}*/
         gInterface.ZoneDessin->redraw();
+        gInterface.ChampNumy->value(gData.x ) ;
+        gInterface.ChampNumx->value( gData.y + RTerre) ;
+        gInterface.ChampNumvx->value( gData.vx ) ;
+        gInterface.ChampNumvy->value( gData.vy ) ;
+//        gInterface.ChampNumy->value( gData.ax ) ;
+//        gInterface.ChampNumx->value( gData.ay ) ;
 
         //cout << "print y en fin de cycle" << endl;
         //printf("%d",gData.y);
-
+        printf("%lf", gData.vy_curseur);
 }
 
+
+void CurseurCB ( Fl_Widget* w, void* data )
+{
+  gData.vy_curseur = gInterface.Curseur->value() ;
+
+}
 
 
 

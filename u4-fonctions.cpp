@@ -18,6 +18,7 @@ void InitialiserData()
     gData.vy = -VBas;
     gData.vx = 0;
 
+    gData.vy_curseur = 0;
 
 	// initialisation des autres attributs de gData
     gData.t = 0;

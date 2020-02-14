@@ -9,6 +9,8 @@ void TraiterCycleCB();
 
 // d�claration des autres m�thodes : � compl�ter ci-dessous selon les �l�ments actifs (de type bouton ou autre) qu'on veut ajouter dans l'interface
 
+void CurseurCB ( Fl_Widget* w, void* data );
+
 void CallBackExit(Fl_Widget* w, void* data);
 void CallBackPause(Fl_Widget* w, void* data);
 void CallBackPropO1 (Fl_Widget* w, void* data);
