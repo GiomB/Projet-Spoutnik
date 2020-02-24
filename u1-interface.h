@@ -17,6 +17,7 @@
 #include <FL/Fl_Value_Input.H>
 #include <FL/Fl_Box.H>
 #include <FL/Fl_JPEG_Image.H>
+#include <FL/Fl_PNG_Image.H>
 
 // déclaration des constantes de l'interface graphique
 
@@ -45,7 +46,9 @@ struct Interface
     Fl_Button*          BoutonExit;
     Fl_Button*          BoutonPropO1;
     Fl_Button*          BoutonPropO2;
-    Fl_Button*		      BoutonPause;
+    Fl_Button*          BoutonPropO3;
+    Fl_Button*          BoutonPropO4;
+    Fl_Button*		    BoutonStart;
 
     Fl_Box*             BackBox;
     Fl_JPEG_Image*      BackImage;
@@ -63,6 +66,12 @@ struct Interface
     Fl_Output* ChampTxtCurseurVy ;
 
     Fl_Value_Slider* Curseur ;
+
+    Fl_Choice* MenuOptions ;
+
+    Fl_Group* GroupeBoutonsRadios;
+    Fl_Round_Button* BoutonAutomatique;
+    Fl_Round_Button* BoutonManuel;
 
 };
 extern struct Interface gInterface ;

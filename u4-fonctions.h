@@ -18,7 +18,7 @@ const double HauteurZone = 10;				// hauteur physique de la zone de dessin (en m
 
 //Definiton des variables réduites (SANS DIMENSIONS)
 const double VBas=103.6;  //vitesse sur l'orbite basse
-const double VGeo=41.6;  //vitesse sur l'orbite géostationnaire
+const double VGeo=41.45;  //vitesse sur l'orbite géostationnaire
 const double v1=135.93;   //vitesse nécessaire pour quitter l'orbite basse vers celle de transfert
 const double v2=21.795;  //vitesse nécessaire pour arriver sur l'orbite géostationnaire depuis celle de transfert
 const double Imp1=31;   //vitesse à donner pour atteindre orbite de transfert
@@ -43,14 +43,25 @@ struct Data
   double vx;    // vitesse selon y (en m.s-1)
   double vy;		// vitesse selon y (en m.s-1)
 
+  double ax;
+  double ay;
+
   double vy_curseur;
 
 	double t;			// temps physique (en s) de la simulation (de t=0 - valeur initiale - � une �ventuelle valeur maximale, non fix�e dans cette version minimaliste)
 
-	bool Pause;			// pour faire une pause en cliquant sur un bouton (et reprendre la simu en cliquant � nouveau dessus)
+	bool Start;			// pour faire Start
 	bool PropO2;
   bool PropO1;
+  bool PropO3;
+  bool PropO4;
 
+  char MenuOption;
+
+  int PilotageAutomatique;
+  int PilotageManuel;
+
+  int CompteurDessinerTerre;
 };
 extern struct Data gData;
 

@@ -5,6 +5,8 @@
 
 // d�claration des m�thodes (une seule ici)
 
-void DessinerCB( Fl_Widget* widget, void* data ) ;
+void DessinerTERRE( Fl_Widget* widget, void* data) ;
+void DessinerLUNE( Fl_Widget* widget, void* data) ;
+void DessinerMARS( Fl_Widget* widget, void* data) ;
 
 #endif

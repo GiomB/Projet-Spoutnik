@@ -16,31 +16,41 @@ void CreerInterface()
     gInterface.Fenetre->label("Projet Spoutnik");
     gInterface.Fenetre->begin() ;
 
-    //mettre image de fond : ciel étoilé
+    // //Creation d'un fond étoile : image CIEL2
     gInterface.BackImage = new Fl_JPEG_Image("CIEL.jpg");
     gInterface.BackBox = new Fl_Box(X_ZONE,Y_ZONE,L_ZONE,H_ZONE);
     gInterface.BackBox->image(gInterface.BackImage);
 
     // cr�ation de la zone de dessin (en lui associant sa m�thode de dessin en CB)
     gInterface.ZoneDessin = new DrawingArea(X_ZONE,Y_ZONE,L_ZONE,H_ZONE);
-    gInterface.ZoneDessin->draw_callback(DessinerCB, NULL);
 
-     // exemple fourni de cr�ation d'un bouton (ici pour "Quitter", cf. la m�thode QuitterCB dans u3)
-    gInterface.BoutonExit = new Fl_Button(20, 500, 120, 20, "Exit");
+    // Creation du bouton "Quitter" pour fermer l'interface graphique
+    gInterface.BoutonExit = new Fl_Button(5, 500, 170, 20, "Quitter");
     gInterface.BoutonExit->callback(CallBackExit, NULL);
 
-    // Creation du bouton "Pause/Play"
-    gInterface.BoutonPause = new Fl_Button(20, 450, 120, 20, "Pause/Play");
-    gInterface.BoutonPause->callback(CallBackPause, NULL);
+    // Creation du bouton "Start" (lancer la simu) et Pause (arreter à tout instant la simu)
+    gInterface.BoutonStart = new Fl_Button(5, 300, 170, 20, "Start - Pause");
+    gInterface.BoutonStart->callback(CallBackStart, NULL);
 
 
-    // Creation du bouton "propulsion orbite 1"
-    gInterface.BoutonPropO1 = new Fl_Button(20, 350, 120, 20, "Propulsion 1");
+    // Creation du bouton "Mise du satellite sur l'orbite de transfert"
+    gInterface.BoutonPropO1 = new Fl_Button(5, 330, 170, 20, "Mise Orbite Transfert");
     gInterface.BoutonPropO1->callback(CallBackPropO1, NULL);
 
-    // Creation du bouton "Propulsion orbite 2"
-    gInterface.BoutonPropO2 = new Fl_Button(20, 400, 120, 20, "Propulsion 2");
+    // Creation du bouton "Mise du satellite sur l'orbite geostationnaire"
+    gInterface.BoutonPropO2 = new Fl_Button(5, 360, 170, 20, "Mise Orbite Geostat");
     gInterface.BoutonPropO2->callback(CallBackPropO2, NULL);
+
+    // Creation du bouton "Mise du satellite sur l'orbite geostationnaire"
+    gInterface.BoutonPropO3 = new Fl_Button(5, 390, 170, 20, "Retour Orbite Transfert");
+    gInterface.BoutonPropO3->callback(CallBackPropO3, NULL);
+
+    // Creation du bouton "Mise du satellite sur l'orbite geostationnaire"
+    gInterface.BoutonPropO4 = new Fl_Button(5, 420, 170, 20, "Retour Orbite Basse");
+    gInterface.BoutonPropO4->callback(CallBackPropO4, NULL);
+
+
+
 
 /* CHAMPS D'AFFICHAGE */
 
@@ -51,10 +61,10 @@ void CreerInterface()
 
     // Creation du Champ d'affichage numérique "Position satellite x"
     gInterface.ChampNumy = new Fl_Value_Output( 60, 50, 60, 20, "x " ) ;
-    gInterface.ChampNumy->precision( 2 ) ;
+    gInterface.ChampNumy->precision( 1 ) ;
     // Creation du Champ d'affichage numérique "Position satellite y"
     gInterface.ChampNumx = new Fl_Value_Output( 60, 80, 60, 20, "y " ) ;
-    gInterface.ChampNumx->precision( 2 ) ;
+    gInterface.ChampNumx->precision( 1 ) ;
 
 
 //Vitesse
@@ -64,25 +74,25 @@ void CreerInterface()
 
     // Creation du Champ d'affichage numérique "Vitesse x"
     gInterface.ChampNumvx = new Fl_Value_Output( 60, 140, 60, 20, "x " ) ;
-    gInterface.ChampNumvx->precision( 2 ) ;
+    gInterface.ChampNumvx->precision( 0 ) ;
 
     // Creation du Champ d'affichage numérique "Vitesse y"
     gInterface.ChampNumvy = new Fl_Value_Output( 60, 170, 60, 20, "y " ) ;
-    gInterface.ChampNumvy->precision( 2 ) ;
+    gInterface.ChampNumvy->precision( 0 ) ;
 
 
 //Accélération
 
-  // Creation du Champ d'affichage texte "Accélération satellite "
-  gInterface.ChampTxtAcceleration = new Fl_Output( 170, 210, 0, 0,"Acceleration du satellite") ;
-
-  // Creation du Champ d'affichage numérique "Accélération x"
-  gInterface.ChampNumax = new Fl_Value_Output( 60, 230, 60, 20, "x " ) ;
-  ///gInterface.ChampNumay->precision( 2 ) ;
-
-  // Creation du Champ d'affichage numérique "Accélération y"
-  gInterface.ChampNumay = new Fl_Value_Output( 60, 260, 60, 20, "y " ) ;
-  //gInterface.ChampNumay->precision( 2 ) ;
+  // // Creation du Champ d'affichage texte "Accélération satellite "
+  // gInterface.ChampTxtAcceleration = new Fl_Output( 170, 210, 0, 0,"Acceleration du satellite") ;
+  //
+  // // Creation du Champ d'affichage numérique "Accélération x"
+  // gInterface.ChampNumax = new Fl_Value_Output( 60, 230, 60, 20, "x " ) ;
+  // gInterface.ChampNumay->precision( 0 ) ;
+  //
+  // // Creation du Champ d'affichage numérique "Accélération y"
+  // gInterface.ChampNumay = new Fl_Value_Output( 60, 260, 60, 20, "y " ) ;
+  // gInterface.ChampNumay->precision( 0 ) ;
 
 
 //Curseur
@@ -97,6 +107,30 @@ gInterface.Curseur->align( FL_ALIGN_LEFT ) ;
 gInterface.Curseur->bounds( 0, 150 ) ;
 gInterface.Curseur->precision( 0 ) ;
 gInterface.Curseur->callback( CurseurCB, NULL ) ;
+
+//Menu déroulant
+
+gInterface.MenuOptions = new Fl_Choice( 100, 600, 60, 20, "Quel astre ?" ) ;
+gInterface.MenuOptions->add( "Terre", "", MenuOptionsCB ) ;
+gInterface.MenuOptions->add( "Lune", "", MenuOptionsCB ) ;
+gInterface.MenuOptions->add( "Mars", "", MenuOptionsCB ) ;
+gInterface.MenuOptions->value( 0 ) ;
+
+//Boutons Radio
+gInterface.GroupeBoutonsRadios = new Fl_Group( 100, 650, 0, 0, "" ) ;
+gInterface.GroupeBoutonsRadios->begin() ;
+
+gInterface.BoutonAutomatique = new Fl_Round_Button( 20, 700, 100, 20, "Pilotage Automatique") ;
+gInterface.BoutonAutomatique->type(FL_RADIO_BUTTON) ;
+gInterface.BoutonAutomatique->callback(BoutonRadioCB, NULL ) ;
+gInterface.BoutonAutomatique->value( 1 ) ;
+
+gInterface.BoutonManuel = new Fl_Round_Button( 20, 720, 100, 20, "Pilotage Manuel") ;
+gInterface.BoutonManuel->type(FL_RADIO_BUTTON) ;
+gInterface.BoutonManuel ->callback(BoutonRadioCB, NULL ) ;
+
+gInterface. GroupeBoutonsRadios->end();
+
 
 	// ajouter ci-dessous d'autres �l�ments �ventuellement utiles (Fl_Button, Fl_Value_Output, Fl_Value_Input, ...)
 

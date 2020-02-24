@@ -12,8 +12,14 @@ void TraiterCycleCB();
 void CurseurCB ( Fl_Widget* w, void* data );
 
 void CallBackExit(Fl_Widget* w, void* data);
-void CallBackPause(Fl_Widget* w, void* data);
+void CallBackStart(Fl_Widget* w, void* data);
 void CallBackPropO1 (Fl_Widget* w, void* data);
 void CallBackPropO2 (Fl_Widget* w, void* data);
+void CallBackPropO3 (Fl_Widget* w, void* data);
+void CallBackPropO4 (Fl_Widget* w, void* data);
+
+void MenuOptionsCB( Fl_Widget* w, void* data );
+
+void BoutonRadioCB(Fl_Widget* w, void* data);
 
 #endif
